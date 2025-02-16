@@ -1,6 +1,8 @@
 package com.example.cp3406_assignment1_project.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -41,8 +43,8 @@ fun HomeScreen() {
 
             Spacer(modifier = Modifier.height(16.dp)) // 添加间距，让 Card 和文本分开
 
-            // box 1
-            CustomBox {
+            // Box 1
+            CustomBox(icon = Icons.Filled.Star, iconPosition = IconPosition.LEFT) {
                 Text(
                     text = "Suggestion",
                     textAlign = TextAlign.Center,
@@ -50,17 +52,17 @@ fun HomeScreen() {
                 )
             }
 
-            // box 2
-            CustomBox {
+            // Box 2
+            CustomBox(icon = Icons.Filled.Star, iconPosition = IconPosition.LEFT) {
                 Text(
-                    text = "Today's monitoring",
+                    text = "Today's monitoring data",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
 
-            // box 3
-            CustomBox {
+            // Box 3
+            CustomBox(icon = Icons.Filled.Star, iconPosition = IconPosition.LEFT) {
                 Text(
                     text = "Heart Rate",
                     textAlign = TextAlign.Center,
@@ -68,38 +70,18 @@ fun HomeScreen() {
                 )
             }
 
-            // box 4
-            CustomBox {
+            // Box 4
+            CustomBox(icon = Icons.Filled.Star, iconPosition = IconPosition.LEFT) {
                 Text(
                     text = "Step / Calorie / StandCount",
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodyLarge
                 )
             }
+
         }
     }
 }
-
-@Composable
-fun CustomBox(content: @Composable () -> Unit) { // ✅ 让 CustomBox 接收 Composable 内容
-    Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        ),
-        modifier = Modifier
-            .fillMaxWidth() //填满屏幕
-            .height(120.dp) //box高度
-            .padding(8.dp)
-    ) {
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = androidx.compose.ui.Alignment.Center
-        ) {
-            content() // ✅ 让传入的 Composable 内容正确渲染
-        }
-    }
-}
-
 
 
 @Preview(showBackground = true)
